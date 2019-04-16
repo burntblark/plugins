@@ -164,6 +164,7 @@ final class GoogleMapController
     googleMap.setOnMarkerClickListener(this);
     googleMap.setOnPolylineClickListener(this);
     googleMap.setOnMapClickListener(this);
+    googleMap.setOnMapLongClickListener(this);
     updateMyLocationEnabled();
     markersController.setGoogleMap(googleMap);
     polylinesController.setGoogleMap(googleMap);
@@ -281,6 +282,13 @@ final class GoogleMapController
     final Map<String, Object> arguments = new HashMap<>(2);
     arguments.put("position", Convert.latLngToJson(latLng));
     methodChannel.invokeMethod("map#onTap", arguments);
+  }
+
+  @Override
+  public void onMapLongClick(LatLng latLng) {
+    final Map<String, Object> arguments = new HashMap<>(2);
+    arguments.put("position", Convert.latLngToJson(latLng));
+    methodChannel.invokeMethod("map#onLongTap", arguments);
   }
 
   @Override
