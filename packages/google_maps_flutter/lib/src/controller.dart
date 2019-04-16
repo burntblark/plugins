@@ -68,6 +68,8 @@ class GoogleMapController {
         break;
       case 'map#onTap':
         _googleMapState.onTap(LatLng._fromJson(call.arguments['position']));
+      case 'map#onLongTap':
+        _googleMapState.onLongTap(LatLng._fromJson(call.arguments['position']));
         break;
       default:
         throw MissingPluginException();
