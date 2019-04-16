@@ -54,6 +54,7 @@ final class GoogleMapController
         MethodChannel.MethodCallHandler,
         OnMapReadyCallback,
         GoogleMap.OnMapClickListener,
+        GoogleMap.OnMapLongClickListener,
         PlatformView {
 
   private static final String TAG = "GoogleMapController";
